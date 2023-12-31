@@ -1,3 +1,9 @@
 *.ipynb
-data
+/data
 *.pt
+**/.DS_Store
+/outputs
+/mlruns
+/.ipynb_checkpoints
+/__pycache__
+preds.csv

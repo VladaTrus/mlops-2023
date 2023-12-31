@@ -1,0 +1,37 @@
+defaults:
+  - _self_
+
+paths:
+      dir: 'data'
+      train: 'train/'
+      test: 'val/'
+      model: 'resnet_model.pt'
+      preds: 'preds.csv'
+
+data:
+      class_names: {"cat": 0, "dog": 1, "wild": 2}
+      test_size: 0.2
+      random_state: 42
+
+train_transform:
+      random_rotation: 15
+      resize: 256
+      center_crop: 224
+      normalize_mean: [0.485, 0.456, 0.406]
+      normalize_std: [0.229, 0.224, 0.225]
+
+test_transform:
+      resize: 256
+      center_crop: 224
+      normalize_mean: [0.485, 0.456, 0.406]
+      normalize_std: [0.229, 0.224, 0.225]
+
+model_params:
+      batch_size: 32
+      cnt_out: 3
+      lr: 0.001
+      epochs: 5
+
+mlflow_params:
+      run_mlflow: True
+      uri: 'http://127.0.0.1:8080'
